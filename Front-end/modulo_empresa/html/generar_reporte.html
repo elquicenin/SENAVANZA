@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Empresarial - Senavanza</title>
+    <link rel="stylesheet" href="../css/style_formato_empresa.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+</head>
+<body>
+    <!---Contenedor Principal-->
+    <div class="container-principal">
+        <!---Barra Lateral (SideBar)-->
+        <aside class="barra_lateral">
+            <div class="user">
+                <img class="user_photo" src="/img/Logo_Senavanza.png" alt="Foto Administrador"> <!---Logo del Proyecto-->
+                <p class="username">@Empresa</p> <!---User del Actor-->
+            </div><!--user-->
+            <!---------------------------Opciones de Navegacion-------------------------->
+            <nav class="menu"><!---Con estos hipervinculos viajaremos por toda la pagina web-->
+                <a class="button" href="llenar_encuesta.html">Llenar Encuesta</a>
+                <a class="button" href="empresa.html">Volver a Menu</a>
+                <a class="button" href="visualizar_resultado.html">Visualizar resultado</a>
+                
+            </nav><!--Menu-->
+        </aside><!---barra_lateral-->
+            <main class="main-content">
+                <h2>Descargar Reporte</h2>
+                <button type="button" onclick="generarReporte()">Generar Reporte PDF y XML</button>
+                <p id="mensajeReporte"></p>
+            </main>
+    </div>
+    
+        <!-- JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script>
+            function generarReporte() {
+                const respuestas = JSON.parse(localStorage.getItem('diagnosticoRespuestas'));
+                if (!respuestas) {
+                    alert("No hay datos para generar el reporte.");
+                    return;
+                }
+    
+                // Generar PDF
+                const contenido = `Resultados del Diagnóstico:\n\n${Object.entries(respuestas).map(([key, value]) => `${key}: ${value}`).join("\n")}`;
+                const doc = new jsPDF();
+                doc.text(contenido, 10, 10);
+                doc.save('diagnostico.pdf');
+    
+                // Generar XML
+                let xml = '<?xml version="1.0" encoding="UTF-8"?><diagnostico>';
+                for (const [key, value] of Object.entries(respuestas)) {
+                    xml += `<${key}>${value}</${key}>`;
+                }
+                xml += '</diagnostico>';
+    
+                const blob = new Blob([xml], { type: 'text/xml' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'diagnostico.xml';
+                link.click();
+    
+                document.getElementById('mensajeReporte').textContent = "Reporte generado con éxito.";
+            }
+    
+            function cerrarSesion() {
+                alert("Sesión cerrada.");
+                window.location.href = 'login.html'; // Cambia según tu sistema
+            }
+        </script>
+</body>
+</html>

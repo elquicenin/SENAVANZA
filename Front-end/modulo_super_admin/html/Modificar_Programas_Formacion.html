@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style_formato_admin.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <title> Modificar Programa de formación </title>
+</head>
+<body>
+    <!---Contenedor Principal-->
+    <div class="container-principal">
+        <!---Barra Lateral (SideBar)-->
+        <aside class="barra_lateral">
+            <div class="user">
+                <img class="user_photo" src="/img/Logo_Senavanza.png" alt="Foto Administrador"> <!---Logo del Proyecto-->
+                <p class="username">@SuperAdministrador</p> <!---User del Actor-->
+            </div><!--user-->
+            <!--Opciones de Navegacion-->
+            <nav class="menu"><!---Con estos hipervinculos viajaremos por toda la pagina web-->
+                <a href="../html/Crear_Programas_Formacion.html">Crear Programa de formación</a>
+                <a href="../html/Listar_Programas_Formacion.html">Listar programas de formación</a>
+                <a href="../html/Visualizar_Programas_Formacion.html">Visualizar programa de formación</a>
+                <a href="../html/Modificar_Programas_Formacion.html">Modificar programa de formación</a>
+                <a href="../html/Activar_o_Desactivar_Programas_Formacion.html">Activar programa de formación</a>
+                <a href="../html/Suspender_Programas_Formacion.html">Suspender programa de formación</a>
+                <a href="../html/Reporte_Programas_Formacion.html">Reporte programas de formación</a>
+            </nav><!--Menu-->
+            <button class="logout-button">Cerrar Sesión</button>
+        </aside><!---barra_lateral-->
+        <!--Main-->
+        <main class="menu">
+            <div class="title-opcion">
+                <p class="title">Modificar Programas de Formación</p><!--title-->
+                <hr>
+            </div><!--title-opcion-->
+            <!--Formulario para Modificar-->
+            <form action="#" class="form">
+                <div class="input-group">
+                    <input type="text" id="nombre" name="nombre" class="input" placeholder="Nombre del Programa de Formacion">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="meses" name="meses" class="input" placeholder="Duración (En Meses)">
+                </div>
+                <div class="input-group">
+                    <select type="text" id="nombre" name="nombre" class="input">
+                        <option value="" disabled selected>Nivel de la formación</option>
+                        <option value="auxiliar">Auxiliar</option>
+                        <option value="operario">Operario</option>
+                        <option value="técnico">Técnico</option>
+                        <option value="profundización técnica">Profundización técnica</option>
+                        <option value="tecnólogo ">Tecnólogo</option>
+                        <option value="especialización tecnológica ">Especialización tecnológica </option>
+                      </select>
+                </div>
+            </form><!----form-->
+            <button class="bt_crear" onclick="">Modificar Programa de Formacion</button>
+            <!---Imagen para rellenar el espacio en blanco-->
+            <img class="imagen-relleno" src="/img/Logo_Senavanza.png" alt="">
+        </main><!--Menu-->
+    </div><!---container-principal-->
+    
+</body>
+</html>

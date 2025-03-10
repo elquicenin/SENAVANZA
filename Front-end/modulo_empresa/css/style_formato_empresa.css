@@ -1,0 +1,310 @@
+:root{
+    /* Primary Color */
+    --primary-color-950: #39a900;
+    --primary-color-900: #36ae0f;
+    --primary-color-850: #42b31e;
+    --primary-color-800: #4fb82d;
+    --primary-color-750: #5bbd3c;
+    --primary-color-700: #68c24b;
+    --primary-color-650: #75c75a;
+    --primary-color-600: #81cc69;
+    --primary-color-550: #8ed178;
+    --primary-color-500: #9ad787;
+    --primary-color-450: #a7dc96;
+    --primary-color-400: #b3e1a5;
+    --primary-color-350: #c0e6b4;
+    --primary-color-300: #cdebc3;
+    --primary-color-250: #d9f0d2;
+    --primary-color-200: #e6f5e1;
+    --primary-color-150: #f2faf0;
+    /* Secundary Color */
+    --secundary-color-950: #82def0;
+    --secundary-color-900: #89e0f1;
+    --secundary-color-850: #91e2f2;
+    --secundary-color-800: #98e4f3;
+    --secundary-color-750: #9fe6f4;
+    --secundary-color-700: #a7e8f4;
+    --secundary-color-650: #aee4f5;
+    --secundary-color-600: #b5ecf6;
+    --secundary-color-550: #bdeef7;
+    --secundary-color-500: #c4eff8;
+    --secundary-color-450: #ccf1f9;
+    --secundary-color-400: #d3f3fa;
+    --secundary-color-350: #daf5fb;
+    --secundary-color-300: #e2f7fb;
+    --secundary-color-250: #e9f9fc;
+    --secundary-color-200: #f0fbfd;
+    --secundary-color-150: #f8fdfe;
+    
+    /* Neutral Colors */
+    --black: #000000;
+    --black-variation-1: #0f0f0f;
+    --black-variation-2: #1e1e1e;
+    --black-variation-3: #2d2d2d;
+    --black-variation-4: #3c3c3c;
+    --black-variation-5: #4b4b4b;
+
+    --gray: #5a5a5a;
+    --gray-variation-1: #696969;
+    --gray-variation-2: #787878;
+    --gray-variation-3: #878787;
+    --gray-variation-4: #969696;
+    --gray-variation-5: #a5a5a5;
+    --gray-variation-6: #b4b4b4;
+    --gray-variation-7: #c3c3c3;
+    --gray-variation-8: #d2d2d2;
+    --gray-variation-9: #e1e1e1;
+    --gray-variation-10: #f0f0f0;
+
+    --white: #ffffff;
+
+    /* Font Size */
+    --font-size-h1: 3.2rem;
+    --font-size-h2: 2.4rem;
+    --font-size-h3: 2rem;
+    --font-size-h4: 1.6rem;
+    --font-size-h5: 1.4rem;
+    --font-size-h6: 1.2rem;
+
+    /* Font Family */
+    --font-family-regular: "senavanza-regular";
+    --font-family-bold:"senavanza-bold";
+
+}
+html{
+    font-size: 62.5%; /*Hack que permite manejar rem con facilidad*/
+    box-sizing: border-box;
+}
+/*Snipet Paul*/
+*,*:before, *:after{
+    box-sizing: inherit;
+}
+
+/* General Styles */
+
+
+body {
+    margin: 0;
+    font-family: var(--font-family-regular);
+    font-size: 62.5%;
+    background-color: var(--white);
+    color: var(--gray);
+}
+
+h1, h2 {
+    color: var(--primary-color-900);
+    text-align: center;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    margin: 2rem 0;
+}
+
+h2 {
+    font-size: var(--font-size-h4);
+    margin: 1.5rem 0;
+}
+
+p {
+    font-size: var(--font-size-h5);
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+/* Container Principal */
+.container-principal {
+    display: flex;
+}
+
+/* Sidebar */
+.barra_lateral {
+    background-color: var(--primary-color-900); /* Aquí cambiamos el fondo */
+    padding: 2rem;
+    height: 100vh; /* Asegura que la barra cubra toda la altura de la pantalla */
+    width: 25rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10; /* Asegura que el menú quede por encima del contenido */
+    overflow-y: auto;
+}
+
+.barra_lateral img {
+    width: 80%;
+    display: block;
+    margin: 0 auto 2rem;
+}
+
+.barra_lateral .menu a,
+.barra_lateral .menu button {
+    display: block;
+    text-decoration: none;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 1rem;
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.barra_lateral .menu a:hover,
+.barra_lateral .menu button:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.button {
+    background-color: var(--primary-color-700);
+    color: var(--white);
+    font-size: var(--font-size-h5);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+.logout-button {
+    display: block;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.logout-button:hover {
+    background-color: var(--gray);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 28rem;
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+/* Formulario de Encuesta */
+form#diagnosticoForm {
+    background-color: var(--primary-color-150);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form#diagnosticoForm label {
+    font-size: var(--font-size-h4);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form#diagnosticoForm textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--primary-color-700);
+    border-radius: 0.5rem;
+    resize: none;
+    margin-bottom: 1.5rem;
+}
+
+form#diagnosticoForm button {
+    background-color: var(--primary-color-700);
+    color: var(--white);
+    font-size: var(--font-size-h5);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+form#diagnosticoForm button:hover {
+    background-color: var(--primary-color-900);
+}
+
+/* Secciones Centradas */
+#generarReporte,
+#verResultados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 4rem); /* Altura completa menos espacio superior */
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+#generarReporte button,
+#verResultados button {
+    background-color: var(--primary-color-700);
+    color: var(--white);
+    font-size: var(--font-size-h5);
+    padding: var(--button-padding);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    height: var(--button-height);
+    margin-top: 2rem;
+}
+
+#generarReporte button:hover,
+#verResultados button:hover {
+    background-color: var(--primary-color-900);
+}
+
+#verResultados p,
+#mensajeReporte {
+    font-size: var(--font-size-h5);
+    padding: 1rem;
+    border: 1px solid var(--primary-color-700);
+    background-color: var(--primary-color-150);
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    max-width: 80%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Menú en la parte superior */
+    .container-principal {
+        flex-direction: column; /* El menú y contenido se apilan verticalmente */
+    }
+
+    .barra_lateral {
+        width: 100%;
+        height: auto;
+        position: static;
+        z-index: 0; /* Asegura que el menú no quede por encima del contenido */
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    /* Centramos el contenido en el móvil */
+    #generarReporte,
+    #verResultados {
+        padding: 1rem;
+        height: auto;
+    }
+
+    /* Ajustamos la barra lateral a la parte superior en dispositivos pequeños */
+    .barra_lateral {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .main-content {
+        padding-top: 4rem; /* Asegura que el contenido no quede debajo del menú */
+    }
+}

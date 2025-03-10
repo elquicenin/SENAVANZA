@@ -1,0 +1,9 @@
+@font-face {
+    font-family: senavanza-regular;
+    src: url(/super_admin/fonts/OpenSans-Regular.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: senavanza-bold;
+    src: url(/super_admin/fonts/OpenSans_Condensed-Bold.ttf) format(truetype);
+}

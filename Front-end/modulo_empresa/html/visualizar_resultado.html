@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Empresarial - Senavanza</title>
+    <link rel="stylesheet" href="../css/style_formato_empresa.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+</head>
+<body>
+    <!---Contenedor Principal-->
+    <div class="container-principal">
+        <!---Barra Lateral (SideBar)-->
+        <aside class="barra_lateral">
+            <div class="user">
+                <img class="user_photo" src="/img/Logo_Senavanza.png" alt="Foto Administrador"> <!---Logo del Proyecto-->
+                <p class="username">@Empresa</p> <!---User del Actor-->
+            </div><!--user-->
+            <!--Opciones de Navegacion-->
+            <nav class="menu"><!---Con estos hipervinculos viajaremos por toda la pagina web-->
+                <a class="button" href="llenar_encuesta.html">Realizar D.G</a>
+                <a class="button" href="generar_reporte.html">Generar Reporte</a>
+                <a class="button" href="empresa.html">Volver a Menu</a>
+                
+            </nav><!--Menu-->
+        </aside><!---barra_lateral-->
+            <main class="main-content">
+                <h2>Visualizar Resultados</h2>
+                <section>
+                    <h2>Resultados del Diagnóstico</h2>
+                    <p id="resumen">No hay resultados disponibles aún.</p>
+                </section>
+            </main>
+    </div>
+    
+        <!-- JavaScript -->
+        <script>
+            function cargarResultados() {
+                const respuestas = JSON.parse(localStorage.getItem('diagnosticoRespuestas'));
+                const resumen = document.getElementById('resumen');
+                if (!respuestas) {
+                    resumen.textContent = "No hay resultados disponibles aún.";
+                } else {
+                    resumen.textContent = Object.entries(respuestas)
+                        .map(([key, value]) => `${key}: ${value}`)
+                        .join("\n");
+                }
+            }
+    
+            function cerrarSesion() {
+                alert("Sesión cerrada.");
+                window.location.href = 'login.html'; // Cambia según tu sistema
+            }
+    
+            // Cargar resultados al cargar la página
+            window.onload = cargarResultados;
+        </script>
+</body>
+</html>

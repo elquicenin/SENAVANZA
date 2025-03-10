@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Empresarial - Senavanza</title>
+    <link rel="stylesheet" href="../css/style_formato_empresa.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+</head> 
+<body>
+    <!---Contenedor Principal-->
+    <div class="container-principal">
+        <!---Barra Lateral (SideBar)-->
+        <aside class="barra_lateral">
+            <div class="user">
+                <img class="user_photo" src="/img/Logo_Senavanza.png" alt="Foto Administrador"> <!---Logo del Proyecto-->
+                <p class="username">@Empresa</p> <!---User del Actor-->
+            </div><!--user-->
+            <!--Opciones de Navegacion-->
+            <nav class="menu"><!---Con estos hipervinculos viajaremos por toda la pagina web-->
+                <a class="button" href="../html/empresa.html">Volver a Menu</a>
+                <a class="button" href="../html/generar_reporte.html">Generar Reporte</a>
+                <a class="button" href="../html/visualizar_resultado.html">Visualizar resultado</a>
+                
+            </nav><!--Menu-->
+            <button class="logout-button">Cerrar Sesión</button>
+        </aside><!---barra_lateral-->
+        <!--Main-->
+        <main class="main-content">
+            <h1>Llenar Encuesta</h1>
+            <form id="diagnosticoForm">
+                <label for="pregunta1">¿Cuál es la misión de la empresa?</label>
+                <textarea id="pregunta1" name="pregunta1" rows="4"></textarea>
+
+                <label for="pregunta2">¿Qué estrategias están implementando actualmente?</label>
+                <textarea id="pregunta2" name="pregunta2" rows="4"></textarea>
+
+                <!-- Botón para guardar datos -->
+                <button type="button" onclick="guardarDatos()">Guardar Encuesta</button>
+            </form>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function guardarDatos() {
+            const formulario = document.getElementById('diagnosticoForm');
+            const formData = new FormData(formulario);
+
+            let respuestas = {};
+            formData.forEach((value, key) => {
+                respuestas[key] = value;
+            });
+
+            // Guardar en LocalStorage
+            localStorage.setItem('diagnosticoRespuestas', JSON.stringify(respuestas));
+            alert("Encuesta guardada con éxito.");
+        }
+
+        function cerrarSesion() {
+            alert("Sesión cerrada.");
+            window.location.href = 'login.html'; // Cambia según tu sistema
+        }
+    </script>
+</body>
+</html>
